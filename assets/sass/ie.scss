@@ -1,0 +1,183 @@
+/* Welcome to Compass. Use this file to write IE specific override styles.
+ * Import this file using the following HTML or equivalent:
+ * <!--[if IE]>
+ *   <link href="/stylesheets/ie.css" media="screen, projection" rel="stylesheet" type="text/css" />
+ * <![endif]--> */
+ @import "variables";
+
+ .orator_font {
+	font-family: "Orator", Helvetica, Arial, sans-serif;
+}
+.opensans_font {
+	font-family: "Open Sans", Helvetica, Arial, sans-serif;
+}
+.fjalla_font {
+		font-family: 'Fjalla One', sans-serif;
+}
+.m_menu {
+	display: none;
+}
+nav.mobile {
+	display: none;
+}
+.container {
+	@include outer-container;
+	@extend .orator_font;
+	min-width:em(972);
+	margin: auto auto;
+	height: 300px;
+}
+header {
+	@include span-columns(12);
+	float: left;
+	margin-bottom: em(20);
+	margin-top: em(30);
+
+	.brook-centre-logo {
+		@include span-columns(3 of 12);
+		font-size: 1.6em;
+	}
+
+	nav {
+		display: inline;
+		@include span-columns(9 of 12);
+		@include omega();
+		position: relative;
+		background-color: $white;
+
+		.nav {
+			position: relative;
+			background-color: $white;
+			height: auto;
+			width: auto;
+
+			li {
+				float: left;
+				display: inline;
+				padding-right: 10px;
+			}
+		}
+	}
+
+	.login_btn {
+		float: right;
+		position: relative;
+		display: inline;
+	}
+}
+#slider {
+	@include row(12);
+	float: left;
+	height: em(300);
+	margin-bottom: em(20);
+	height: auto;
+}
+.slide {
+	height: auto;
+}
+.teasers {
+	@include span-columns(12);
+
+	div {
+		@include span-columns(4 of 12);
+		padding: em(30);
+		height: em(200);
+		margin-left: auto;
+
+		h1 {
+			font-size: em(30);
+		}
+
+		p {
+			position: absolute;
+			bottom: 30px;
+			font-size: em(14);
+			line-height: em(25);
+			padding-right: em(30);
+		}
+	}
+}
+.volunteer, .get_involved, .find_help {
+	border-right: none;
+}
+.h_job_openings {
+	.h_job_openings_heading {
+		font-size: em(25);
+		display: inline-block;
+	}
+
+	.h_job_opening {
+		display: block;
+		width: 100%;
+
+		.h_job_opening_job_type {
+			position: absolute;
+			top: 0px;
+			right: 0px;
+			margin-top: 0;
+		}
+	}
+}
+footer {
+	margin-top: em(30);
+	@extend .orator_font;
+
+	.footer_logos {
+		a {
+			&.brook_centre {
+				display: block;
+			}
+		}
+	}
+
+	.footer_social_media {
+		a {
+			padding: none;
+		}
+	}
+}
+/*Homepage style and core style ends here
+** Get Help - Contact stylesheet starts here
+*/
+.contact {
+	@include span-columns(12);
+	min-height: em(350);
+	@extend .opensans_font;
+}
+.column_12 {
+	@include span-columns(12);
+}
+.contact_text {
+	padding: 0 20%;
+	font-size: em(14);
+	@extend .opensans_font;
+}
+.contact_info {
+	@include span-columns(12);
+
+	.align_right {
+		@include span-columns(5 of 12);
+		padding: em(20);
+		text-align: right;
+		border-bottom: none;
+		padding: em(20);
+		margin-bottom: 0;
+	}
+
+	.align_left {
+		@include span-columns(5 of 12);
+		text-align: left;
+		@include span-columns(5 of 12);
+		padding: em(20);
+		@include shift(1);
+		border-bottom: none;
+		margin-bottom: 0;
+	}
+}
+.contact_address {
+	@include span-columns(12);
+	padding: 0 em(200);
+	line-height: 200%; 
+	font-size: em(16);
+	margin: em(50) 0;
+}

@@ -1,0 +1,2494 @@
+@import "variables";
+
+.orator_font {
+	font-family: "Orator", Helvetica, Arial, sans-serif;
+}
+.opensans_font {
+	font-family: "Open Sans", Helvetica, Arial, sans-serif;
+}
+.fjalla_font {
+		font-family: 'Fjalla One', sans-serif;
+}
+html {
+	width: 100%;
+	height: 100%;
+	overflow-x: hidden;
+}
+body {
+	background: image_url('bg.png') lighten($light_gray, 30%);
+	font-size: em(16);
+	@extend .opensans_font;
+	position: relative;
+	width: 100%;
+}
+.m_menu {
+	font-family: Icons, sans-serif;
+	color: $white;
+	font-size: em(30);
+	width: em(30);
+	position: absolute;
+	top: em(6);
+	right: em(2);
+	z-index: 1000;
+	cursor: pointer;
+
+	@media screen and (min-width: $break-big) {
+		display: none;
+	}
+}
+.m_menu_gray {
+	color: $gray;
+}
+nav.status {
+	@include span-columns(12);
+	text-align: right;
+	margin-top: em(20);
+
+	a {
+		text-decoration: none;
+		font-size: em(12);
+		font-weight: bold;
+		color: $blue;
+		text-decoration: underline;
+		padding: em(5) em(10);
+		
+		&.btn_blue {
+			@include background-image(linear-gradient(top, #499bea 0%,#207ce5 100%));
+			text-decoration: none;
+			color: $white;
+			padding: em(5) em(20);
+			@include border-radius(em(5));
+
+			&:hover, &:active, &:focus {
+				@include background-image(linear-gradient(top, #207ce5 0%, #499bea 100% ));
+			}
+		}
+	}
+}
+header {
+	a {
+		text-decoration: none;
+	}
+}
+nav.mobile {
+	display: block;
+	width: 100%;
+	height: 100%;
+	width: 100%;
+	position: absolute;
+	@extend .orator_font;
+	font-size: em(22);
+	left: -100%;
+	top: 0;
+	-webkit-transition: all 500ms cubic-bezier(.34,.07,.68,.99);
+    -moz-transition: all 500ms cubic-bezier(.34,.07,.68,.99);
+    -o-transition: all 500ms cubic-bezier(.34,.07,.68,.99);
+    transition: all 500ms cubic-bezier(.34,.07,.68,.99);
+
+	@media screen and (min-width: $break-big) {
+		display: none;
+	}
+	.nav {
+		float: left;
+		width: 100%;
+		background-color: $white;
+
+		li {
+			display: block;
+			padding: 5%;
+			border-bottom: 1px solid lighten($light_gray, 20%);
+
+			a{
+				text-decoration: none;
+				text-transform: lowercase;
+				color: $gray;
+				font-weight: 400;
+				font-size: 1.3em;
+
+				&.active {
+					border-bottom: none;
+				}
+			}
+		}
+	}
+
+	.give_btn {
+			@extend .fjalla_font;
+			background-color: $blue;
+			color: $white;
+			padding: 10px 40px;
+			margin: 7px 7px 0 0;
+
+			@include background-image(linear-gradient(top, ligten(#5ea70b, 30%) 0%,#488503 100%));
+			letter-spacing: 0.2em;
+			@include border-radius(em(2));
+			float: left;
+			width: 100%;
+			text-decoration: none;
+
+			@media screen and (min-width: $break-big) {
+				float: right;
+				position: relative;
+				display: inline;
+			}
+
+			&:hover, &:active {
+				@include background-image(linear-gradient(top, #488503 0%, #5ea70b 100%));
+			}
+	}
+
+	.login_btn {
+		@extend .give_btn;
+		@include background-image(linear-gradient(top, #499bea 0%,#207ce5 100%));
+		width: 50%;
+	}
+
+}
+.container {
+	width: 100%;
+	min-height: 500px;
+	
+	-webkit-transition: -webkit-transform 500ms cubic-bezier(.34,.07,.68,.99);
+    -moz-transition: -moz-transform 500ms cubic-bezier(.34,.07,.68,.99);
+    -o-transition: -o-transform 500ms cubic-bezier(.34,.07,.68,.99);
+    transition: transform 500ms cubic-bezier(.34,.07,.68,.99);
+
+	@media screen and (min-width: $break-big) {
+		@include outer-container;
+		min-width:em(972);
+		margin: auto auto;
+		height: 300px;
+	}
+	
+}
+.show_mobile_nav {
+	-webkit-transform: translate3d(95%, 0, 0);
+    -moz-transform: translate3d(95%, 0, 0);
+    -ms-transform: translate3d(95%, 0, 0);
+    -o-transform: translate3d(95%, 0, 0);
+    transform: translate3d(95%, 0, 0);
+}
+.show_mobile_nav {
+	left: 0%;
+}
+header {
+	width: 100%;
+	background-color: $white;
+	@extend .orator_font;
+	font-weight: 400;
+	z-index: 1500;
+
+	@media screen and (min-width: $break-big) {
+		@include span-columns(12);
+		float: left;
+		margin-bottom: em(20);
+		margin-top: em(10);
+		position: relative;
+	}
+
+	.brook-centre-logo {
+		padding: em(5);
+		background-color: $black;
+		width: 100%;
+		color: $white;
+		text-transform: lowercase;
+		font-weight: 400;
+		font-size: 2em;
+		z-index: 2000;
+		float: left;
+		z-index: 200;
+
+		@media screen and (min-width: $break-big) {
+			@include span-columns(3 of 12);
+			font-size: 1.6em;
+		}
+	}
+
+	nav {
+		display: none;
+
+		@media screen and (min-width: $break-big) {
+			display: inline;
+			@include span-columns(9 of 12);
+			@include omega();
+			position: relative;
+			background-color: $white;
+		}
+
+		.nav {
+			float: left;
+			width: 100%;
+
+			@media screen and (min-width: $break-big) {
+				position: relative;
+				background-color: $white;
+				height: auto;
+				width: auto;
+			}
+
+			li {
+				display: block;
+				border-right: 1px solid lighten($light_gray, 20%);
+
+				&:last-child {
+					border-right: none;
+				}
+
+				@media screen and (min-width: $break-big) {
+					float: left;
+					display: inline;
+					padding-right: em(35);
+					padding-left: em(35);
+				}
+
+				a{
+					text-decoration: none;
+					text-transform: lowercase;
+					color: $gray;
+					font-weight: 400;
+					font-size: 1.3em;
+					word-spacing: -0.3em;
+
+					&.active {
+						padding-bottom: 6px;
+						border-bottom: 4px solid $light_lemon_green;
+					}
+
+					&:hover {
+						color: $lemon_green;
+					}
+				}
+			}
+		}
+	}
+
+	ul{
+		li {
+			display: inline;
+			padding: 0px;
+			margin: 0px;
+			padding: 10px;
+		}
+	}
+
+	.give_btn {
+		@extend .fjalla_font;
+		background-color: $blue;
+		color: $white;
+		padding: 6px 20px;
+		margin: 7px 7px 0 0;
+		@include background-image(linear-gradient(top, #5ea70b 0%,#488503 100%));
+		letter-spacing: 0.2em;
+		@include border-radius(em(2));
+		float: left;
+		text-decoration: none;
+
+		@media screen and (min-width: $break-big) {
+			float: right;
+			position: relative;
+			display: inline;
+		}
+	}
+}
+#slider {
+	width: 100%;
+	background-color: $white;
+	overflow: hidden;
+	height: em(250);
+
+	@media screen and (min-width: $break-big) {
+		height: image_height("changing-our-world-through-love.png");
+	}
+
+	img {
+		width: 100%;
+
+		@media screen and (max-width: $break-big) {
+			height: 100%;
+			width: auto;
+		}
+	}
+
+	@media screen and (min-width: $break-big) {
+		@include row(12);
+		float: left;
+		min-height: 300px;
+		margin-bottom: em(20);
+	}
+}
+.slide {
+	width: 100%;
+	overflow: hidden;
+	@media screen and (max-width: $break-big) {
+		height: em(250);
+	}
+}
+.teasers {
+	width: 100%;
+
+	@media screen and (min-width: $break-big){
+		@include span-columns(12);
+	}
+
+	div {
+		color: $white;
+		font-size: 1.3em;
+		position: relative;
+		padding: em(10);
+
+		@media screen and (min-width: $break-big){
+			@include span-columns(4 of 12);
+			padding: em(30);
+			height: em(200);
+			margin-left: auto;
+		}
+
+		h1 {
+			@extend .fjalla_font;
+			text-transform: uppercase;
+			font-size: em(20);
+			padding-bottom: 30px;
+			
+			@media screen and (min-width: $break-big) {
+				font-size: em(30);
+			}
+		}
+
+		p {
+			@extend .fjalla_font;
+			font-size: em(12);
+			line-height: em(20);
+
+			@media screen and (min-width: $break-big) {
+				position: absolute;
+				bottom: 30px;
+				font-size: em(14);
+				line-height: em(25);
+				padding-right: em(30);
+			}
+		}
+	}
+}
+.green_bg {
+	background-color: $green;
+}
+.lemon_green_bg {
+	background-color: $lemon_green;
+}
+.pink_bg {
+	background-color: $pink;
+}
+.volunteer {
+	background: image_url("volunteer-bg.jpg") no-repeat;
+	background-size: cover;
+	border-right: 5px solid $light_green;
+
+	@media screen and (min-width: $break-big) {
+		border-right: none;
+	}
+}
+.get_involved {
+	border-right: 5px solid $light_lemon_green;
+
+	@media screen and (min-width: $break-big) {
+		border-right: none;
+	}
+}
+.find_help {
+	border-right: 5px solid $light_pink;
+
+	@media screen and (min-width: $break-big) {
+		border-right: none;
+	}
+}
+.column_6 {
+	@include span-columns(6 of 12);
+}
+.openings {
+	@include span-columns(12);
+}
+.h_job_openings {
+	@extend .column_6;
+	background-color: $white;
+	padding: em(20);
+	margin-top: em(30);
+	@extend .orator_font;
+	color: $gray;
+
+	@media screen and (max-width: $break-big){
+		width: 90%;
+		margin-left: 5%;
+		height: auto;
+	}
+
+	.h_job_openings_heading {
+		font-size: em(20);
+		background-color: $lemon_green;
+		padding: em(5) em(10);
+		color: $white;
+		border-right: 4px solid $light_lemon_green;
+		margin-bottom: em(20);
+
+		@media screen and (min-width: $break-big) {
+			font-size: em(25);
+			display: inline-block;
+		}
+	}
+
+	.h_job_opening {
+		margin-bottom: em(20);
+		border-bottom: 1px solid lighten($light_gray, 30%);
+		padding-bottom: em(20);
+		position: relative;
+		width: 100%;
+		float: left;
+
+		@media screen and (min-width: $break-big) {
+			display: block;
+		}
+
+		&:last-child {
+			border-bottom: none;
+		}
+
+		a{
+			text-decoration: none;
+			color: $gray;
+		}
+
+		h3 {
+			font-size: em(20);
+			max-width: 70%;
+
+			@media screen and (max-width: $break-big) {
+				max-width: 90%;
+			}
+		}
+
+		p {
+			@extend .opensans_font;
+			color: $blue;
+			font-weight: bold;
+			font-size: em(14);
+			float: left;
+			width: 100%;
+
+			.h_job_opening_location {
+				color: lighten($gray, 20);
+				font-weight: 300;
+
+				&:before {
+					content: '\e805';
+					padding: 0 em(10);
+					color: lighten($gray, 30%);	
+					font-family: Icons, sans-serif;
+					font-size: em(20);
+				}
+			}
+		}
+
+		.h_job_opening_job_type {
+			background-color: $light_pink;
+			@include border-radius(em(3));
+			color: $white;
+			padding: em(5) em(10);
+			margin-top: em(20);
+			float: left;
+
+			@media screen and (min-width: $break-big) {
+				position: absolute;
+				top: 0px;
+				right: 0px;
+				margin-top: 0;
+			}
+		}
+	}
+	.link {
+		@extend .opensans_font;
+		text-decoration: none;
+		display: blokc;
+		padding: em(10) 0;
+		font-size: em(14);
+		color: $link_blue;
+		font-weight: bold;
+
+		&:hover, &:hover {
+			text-decoration: underline;
+		}
+	}
+}
+.h_volunteer {
+	@extend .h_job_openings;
+}
+
+footer {
+	@include span-columns(12);
+	@extend .orator_font;
+	text-transform: uppercase;
+	float: left;
+	margin: em(30) 0;
+	color: $gray;
+	@media screen and (max-width: $break-big) {
+			width: 100%;
+			padding: 0 5%;
+		}
+
+	.footer_info {
+		@include span-columns(12);
+		padding-bottom: em(20);
+		background: image_url("footer-divider.png") repeat-x bottom left;
+
+		@media screen and (max-width: $break-big) {
+			width: 100%;
+		}
+	}
+
+	.footer_logos {
+		@include span-columns(2 of 12);
+
+		a {
+			background-color: lighten($light_gray, 10);
+			color: $white;
+			padding: em(5) em(10);
+			text-decoration: none;
+			display: block;
+			margin-bottom: em(10);
+
+			&.twb {
+				text-indent: -99999px;
+				background: image_url("twb-logo.jpg") no-repeat;
+				width: image_width("twb-logo.jpg");
+				height: image_height("twb-logo.jpg");
+				display: block;
+				
+				@media screen and (max-width: $break-big) {
+					width: 100%;
+					text-align: centre;
+					background-position: center center;
+				}
+			}
+
+			&.brook_centre {
+				display: none;
+
+				@media screen and (min-width: $break-big) {
+					display: block;
+				}
+			}
+		}
+		
+		@media screen and (max-width: $break-big) {
+			width: 100%;
+			text-align: centre;
+		}
+	}
+
+	.newsletter_signup {
+		@include span-columns(4 of 12);
+		padding: 0 em(30);
+
+		@media screen and (max-width: $break-big) {
+				font-size: em(20);
+				margin-top: em(10);
+		}
+
+		.newsletter_form {
+			background-color: lighten($light_gray, 10);
+			width: 100%;
+			margin-top: em(10);
+			float: left;
+		}
+		input[type="email"]{
+			@extend .opensans_font;
+			width: 85%;
+			background-color: lighten($light_gray, 10);
+			color: $white;
+			float: left;
+			padding: em(10);
+			border: none;
+
+			@media screen and (max-width: $break-big){
+				width: 78%;
+				font-size: em(15);
+			}
+		}
+		input[type="submit"] {
+			font-family: Icons, sans-serif;
+			width: 15%;
+			background: none;
+			border: none;
+			font-size: em(20);
+			color: $blue;
+			padding-top: em(5);
+			float: left;
+
+			@media screen and (max-width: $break-big){
+				width: 22%;
+				font-size: (25);
+			}
+		}
+
+		@media screen and (max-width: $break-big) {
+			width: 100%;
+			padding: 0;
+			text-align: center;
+		}	
+	}
+
+	.footer_social_media {
+		@include span-columns(2 of 12);
+		font-family: Icons, sans-serif;
+		font-size: em(40);
+		float: left;
+
+		h4 {
+			@extend .orator_font;
+			font-size: em(7);
+			margin-bottom: em(5);
+
+			@media screen and (max-width: $break-big) {
+				display: inline;
+				line-height: em(40);
+				float: left;
+				padding-right: em(10);
+			}
+		}
+
+		a {
+			padding: 0 10px 0 0;
+			color: $light_blue;
+			text-decoration: none;
+			
+			@media screen and (max-width: $break-big) {
+				float: left;
+				padding-right: em(2);
+			}
+		}
+
+		@media screen and (max-width: $break-big) {
+			width: auto;
+			text-align: center;
+			margin-top: em(5);
+			-webkit-transform: translateX(25%);
+			-moz-transform: translateX(25%);
+			-ms-transform: translateX(25%);
+			-o-transform: translateX(25%);
+			transform: translateX(-25%);
+			
+		}
+	}
+
+	.footer_contact {
+		@include span-columns(4 of 12);
+		font-size: em(14);
+		line-height: em(16);
+
+		.location_icon {
+			padding-right: em(10);
+			color: lighten($gray, 30%);	
+			font-family: Icons, sans-serif;
+			font-size: em(40);
+			float: left;
+			width: 15%;
+			padding-top: em(10);
+
+			@media screen and (max-width: $break-big) {
+				float: none;
+				width: 100%;
+				padding-bottom: em(10);
+			}
+		}
+
+		p {
+			float: left;
+			width: 85%;
+
+			@media screen and (max-width: $break-big) {
+				width: 100%;
+				display: block;
+				padding-top: em(20);
+			}
+		}
+
+		@media screen and (max-width: $break-big) {
+			width: 100%;
+			text-align: center;
+			margin-top: em(40);
+		}
+	}
+
+	.copyright {
+		@include span-columns(12);
+		font-size: em(12);
+		padding: em(20) 0;
+	}
+}
+/*Homepage style and core style ends here
+** Get Help - Contact stylesheet starts here
+*/
+.contact {
+	background-color: $white;
+	position: relative;
+	width: 100%;
+	float: left;
+
+	@media screen and (min-width: $break-big) {
+		@include span-columns(12);
+		min-height: em(350);
+	}
+
+	.section_heading {
+		background-color: rgba(194, 165, 59, 0.7);
+	}
+
+	img {
+		max-width: 100%;
+	}
+}
+.section_heading {
+	@extend .fjalla_font;
+	color: $white;
+	font-size: em(30);
+	padding: em(5) em(10);
+	position: absolute;
+	line-height: em(20);
+	top: 0;
+	left: 0;
+	width: 100%;
+}
+.column_12 {
+	width: 100%;
+
+	@media screen and (min-width: $break-big) {
+		@include span-columns(12);
+	}
+}
+.contact_text {
+	@extend .opensans_font;
+	color: $gray;
+	font-size: em(14);
+	text-align: center;
+	margin: em(30) 0 em(30) 0;
+	line-height: 150%;
+	padding: 0 10%;
+
+
+	@media screen and (min-width: $break-big) {
+		padding: 0 20%;
+		font-size: em(14);
+	}
+}
+.contact_info {
+	width: 100%;
+	color: $gray;
+	font-size: em(14);
+	line-height: 140%;
+
+	@media screen and (max-width: $break-big) {
+		@include span-columns(12);
+	}
+
+	h2 {
+		@extend .orator_font;
+		margin-bottom: em(10);
+		font-size: em(30);
+		line-height: 120%;
+	}
+
+	.align_right {
+		width: 100%;
+		padding: 0 10%;
+		padding-bottom: 10%;
+		border-bottom: 1px solid lighten($light_gray, 20%);
+		margin-bottom: 10%;
+		
+		@media screen and (min-width: $break-big) {
+			@include span-columns(5 of 12);
+			padding: em(20);
+			text-align: right;
+			border-bottom: none;
+			padding: em(20);
+			margin-bottom: 0;
+		}
+	}
+	.align_left {
+		width: 100%;
+		padding: 0 10%;
+		padding-bottom: 10%;
+		border-bottom: 1px solid lighten($light_gray, 20%);
+		margin-bottom: 10%;
+
+		@media screen and (min-width: $break-big) {
+			@include span-columns(5 of 12);
+			text-align: left;
+			@include span-columns(5 of 12);
+			padding: em(20);
+			@include shift(1);
+			border-bottom: none;
+			margin-bottom: 0;
+		}
+	}
+}
+.contact_address {
+	color: lighten($burgundy, 10%);
+	font-size: em(13);
+	line-height: 140%; 
+	width: 100%;
+	padding: 10%; 
+	text-align: center;
+	font-weight: bold;
+
+	@media screen and (min-width: $break-big) {
+		@include span-columns(12);
+		padding: 0 em(200);
+		line-height: 200%; 
+		font-size: em(16);
+		margin: em(50) 0;
+	}
+
+	.map_icon {
+		font-family: Icons, sans-serif;
+		font-size: em(40);
+		display: block;
+		color: lighten($burgundy, 10%);
+
+		&:hover {
+			@include animation(scale 1.0s ease-in, slide 2.0s ease);
+		}
+	}
+}
+/*Stylesheet for Contact page ends here
+**Stylesheet for Jobs page begins**/
+.jobs {
+	@extend .contact;
+	background: none;
+
+	.section_heading {
+		background-color: rgba(108, 5, 56, 0.8);
+	}
+
+	.jobs_header {
+		width: 100%;
+		background: image_url("jobs_bg.jpg");
+		padding: 10%;
+		padding-bottom: 20%;
+		height: em(250);
+
+		@media screen and (min-width: $break-big) {
+			width: span-columns(12);
+			padding: em(100) em(50);
+			height: image_height("jobs_bg.jpg");
+			padding-bottom: 10%;
+		}
+
+		h1 {
+			@extend .fjalla_font;
+			margin-bottom: em(10);
+			color: $white;
+			margin-top: em(20);
+			font-size: em(30);
+
+			@media screen and (min-width: $break-big) {
+				font-size: em(50);
+			}
+		}
+
+		h2 {
+			float: left;
+			margin-right: em(10);
+			font-size: em(25);
+			margin-bottom: em(5);
+
+			@media screen and (min-width: $break-big) {
+				font-size: em(40);
+			}
+		}
+	}
+	
+	.search_heading {
+		width: 100%;
+
+		@media screen and (min-width: $break-big) {
+		@include span-columns(12);
+		margin-top: em(30);
+		}
+	}
+
+	.job_search {
+		width: 100%;
+		padding: 5%;
+
+		@media screen and (min-width: $break-big) {
+			@include span-columns(9 of 12);
+			background-color: $white;
+			padding: 0;
+		}
+	}
+
+	.h_job_openings_heading {
+		@extend .orator_font;
+		font-size: em(20);
+		background-color: $lemon_green;
+		padding: em(5) em(10);
+		color: $white;
+		border-right: 4px solid $light_lemon_green;
+		margin-bottom: em(20);
+
+		@media screen and (min-width: $break-big) {
+			@include span-columns(3 of 12);
+			font-size: em(25);
+			display: inline-block;
+		}
+	}
+}
+.btn_green {
+	@extend .fjalla_font;
+	color: $white;
+	padding: em(5) em(10);
+	background-color: $lemon_green;
+	@include border-radius(em(2));
+}
+.btn_orange {
+	@extend .btn_green;
+	background-color: $orange;
+}
+#job_search_form {
+	width: 100%;
+	float: left;
+
+	@media screen and (min-width: $break-big) {
+		padding: em(2) 0 em(15);
+		height: em(40);
+
+	}
+
+	input {
+		@extend .opensans_font;
+		width: 100%;
+		margin-bottom: em(30);
+		float: left;
+	}
+	input[type="text"], select{
+		color: $gray;
+		padding: em(5) em(10);
+		font-size: em(20);
+		font-weight: bold;
+		border: none;
+		width: 100%;
+		margin: em(5);
+
+		@media screen and (min-width: $break-big) {
+			width: 70%;
+			margin: 0 em(4);
+			font-size: em(12);
+		}
+	}
+
+	select {
+		background-color: lighten($light_gray, 20%);
+		margin-right: em(4);
+		float: left;
+
+		@media screen and (min-width: $break-big) {
+			width: 25%;
+		}
+	}
+	input[type="submit"] {
+		@extend.opensans_font;
+		background-color: $lemon_green;
+		color: $white;
+		font-size: em(16);
+		border: none;
+		width: 70%;
+		margin-right: em(5);
+		float: right;
+		padding: em(5) em(10);
+		font-weight: bold;
+		cursor: pointer;
+
+		
+		@media screen and (min-width: $break-big) {
+			width: auto;
+			margin-left: 0;
+			margin-bottom: em(8);
+		}
+	}
+	input[name="keywords"] {
+		font-size: em(17);
+		font-weight: normal;
+	}
+}
+.job_box_wrapper {
+	width: 100%;
+	float: left;
+}
+.job_box {
+	@include span-columns(12);
+	padding: 10%;
+	background-color: $white;
+	color: $gray;
+	height: em(300);
+	width: 90%;
+	margin: 0 5%;
+	margin-bottom: em(30);
+
+	@media screen and (min-width: $break-big) {
+		margin: 0;
+		margin-bottom: em(30);
+		@include span-columns(4);
+		@include omega(3n);
+		padding: em(40);
+		clear: none;
+		height: auto;
+	}
+	a {
+		text-decoration: none;
+		h3 {
+			@extend .orator_font;
+			font-size: em(20);
+			color: $gray;
+			padding-bottom: em(5);
+
+			@media screen and (max-width: $break-big) {
+				max-width: 90%;
+			}
+		}
+	}
+
+	p {
+		@extend .opensans_font;
+		color: $blue;
+		font-weight: bold;
+		font-size: em(14);
+		float: left;
+		width: 100%;
+
+		.h_job_opening_location {
+		color: lighten($gray, 20);
+		font-weight: 300;
+		display: block;
+		padding-top: em(10);
+		padding-bottom: em(20);
+
+			&:before {
+				content: '\e805';
+				padding: 0 em(10) em(0) em(0);
+				color: lighten($gray, 30%);	
+				font-family: Icons, sans-serif;
+				font-size: em(20);
+			}
+		}
+	}
+
+	p.job_board_body {
+		font-weight: normal;
+		color: $gray;
+		margin-top: em(20);
+		font-size: em(12);
+		line-height: 150%;
+		float: left;
+	}
+
+	.h_job_opening_job_type {
+		background-color: $light_pink;
+		@include border-radius(em(3));
+		color: $white;
+		padding: em(5) em(10);
+		margin-top: em(5);
+		float: left;
+		@extend .orator_font;
+	}
+
+	.btn_green {
+		position: relative;
+		float: left;
+		margin-top: em(10);
+		font-size: em(18);
+	}
+}
+.search_result_header {
+	@extend .opensans_font;
+	font-size: em(20);
+	padding: em(20);
+	background-color: $white;
+	padding-top: em(70);
+	color: $gray;
+
+}
+.jobs_view {
+	padding-top: em(70);
+
+	h1, h2 {
+		display: block;
+	}
+}
+.search_box_wrapper {
+	@media screen and (min-width: $break-big) {
+		@include span-columns(12);
+	}
+}
+.job_view_wrapper {
+	@include span-columns(12);
+	background-color: lighten($light_gray, 30%);
+
+	.job_view_wrapper_main {
+		@include span-columns(12);
+		padding: em(40);
+		background-color: $white;
+		font-size: em(14);
+		line-height: 170%;
+		color: $gray;
+
+		@media screen and (min-width: $break-big) {
+			@include span-columns(8);
+		}
+
+		h2 {
+			color: $burgundy;
+			@extend .orator_font;
+			display: block;
+			font-size: em(25);
+		}
+	}
+
+	.header {
+			@extend .orator_font;
+			font-size: em(30);
+			color: $gray;
+	}
+
+	.job_view_wrapper_sidebar {
+		@include span-columns(12);
+		padding: em(20);
+		color: $gray;
+
+		@media screen and (min-width: $break-big) {
+			@include span-columns(4);
+		}
+
+		h2 {
+			@extend .orator_font;
+			font-size: em(20);
+			margin-bottom: em(10);
+			color: $burgundy;
+		}
+
+		.tag {
+			text-decoration: none;
+			padding: em(10);
+			background-color: $gray;
+			color: $white;
+			margin-right: em(10);
+			margin-bottom: em(10);
+			float: left;
+			@include border-radius(em(3));
+
+			&:hover, &:active {
+				background-color: $link_blue;
+			}
+		}
+
+		.other_jobs {
+			@include span-columns(12);
+			@include omega();
+			
+			margin-top: em(20);
+			padding-top: em(20);
+			border-top: 1px solid ligthen($light_gray, 10%);
+			font-size: em(14);
+
+			.job_view_place {
+				color: ligten($light_gray, 30%);
+				padding-top: em(10);
+				display: block;
+			}
+
+			ul {
+				li {
+					display: block;
+					margin-bottom: em(10);
+					padding-bottom: em(10);
+					border-bottom: 1px dashed lighten($light_gray, 20%);
+
+					a {
+						text-decoration: none;
+						color: $gray;
+						line-height: 150%;
+						font-weight: bold;
+						color: $blue;
+
+						&:hover, &:active {
+							color: $link_blue;
+							text-decoration: underline;
+						}
+					}
+				}
+			}
+		}
+
+		.btn_green{
+			font-size: em(24);
+			margin-bottom: em(30);
+			display: inline-block;
+			text-decoration: none;
+
+			&:hover {
+				background-color: darken($lemon_green, 10%);
+			}
+		}
+	}
+
+	.job_info_wrapper {
+		width: 100%;
+		margin: em(20) 0;
+		font-size: em(18);
+		color: $light_gray;
+		display: block;
+		float: left;
+		padding-bottom: em(20);
+		margin-bottom: em(20);
+		border-bottom: 1px solid lighten($light_gray, 30%);
+
+		li {
+			float: left;
+			padding: em(5) em(10);
+			margin-bottom: em(10);
+			margin-right: em(10);
+		}
+	}
+	.job_view_type {
+		background-color: $light_pink;
+			@include border-radius(em(3));
+			color: $white;
+			float: left;
+	}
+	.job_view_place:before {
+		content: '\e805';
+				padding: 0 em(10) em(10) 0;
+				color: lighten($gray, 30%);	
+				font-family: Icons, sans-serif;
+				font-size: em(20);
+	}
+	.job_view_date:before {
+		content: '\e807';
+				padding: 0 em(10) em(10) 0;
+				color: lighten($gray, 30%);	
+				font-family: Icons, sans-serif;
+				font-size: em(20);
+	}
+
+	.job_description_heading {
+		color: $burgundy;
+		@extend .orator_font;
+		display: block;
+		font-size: em(25);
+
+	}
+	.job_description {
+		ul {
+			li {
+				list-style-type: disc;
+				list-style-position: inside;
+			}
+		}
+
+		p {
+			display: block;
+			margin-bottom: em(20);
+		}
+
+		strong {
+			font-weight: bold;
+		}
+	}
+
+}
+.get_involved_page {
+	@extend .contact;
+	background: $white;
+	padding-top: em(100);
+
+	.section_heading {
+		background-color: rgba(108, 5, 56, 0.8);
+	}
+
+	.quote {
+		padding: 0 em(20);
+		margin-bottom: em(50);
+
+		@media screen and (min-width: $break-big) {
+			padding: 0 em(200);
+		}
+
+		h1 {
+			font-size: em(25);
+			color: lighten($light_gray, 20%);
+			line-height: 140%;
+			font-style: italic;
+		}
+
+		strong {
+			font-weight: bold;
+			color: $gray;
+			font-size: em(14);
+		}
+	}
+}
+.get_involved_single {
+	@include span-columns(12);
+	color: $gray; 
+	font-size: em(14);
+	line-height: 150%;
+	border-bottom: 1px solid lighten($light_gray, 30%);
+	margin-bottom: 0;
+	padding-bottom: 0;
+
+	.left {
+		@include span-columns(12 of 12);
+
+		@media screen and (min-width: $break-big) {
+			@include span-columns(6 of 12);
+		}
+
+		img { 
+			width: 100%;
+		}
+	}
+	.right {
+
+		@include span-columns(12 of 12);
+		padding: 0 em(30) em(30) em(30);
+		@media screen and (min-width: $break-big) {
+			@include span-columns(6 of 12);
+			padding-left: em(30);
+			padding-top: em(50);
+		}
+	}
+
+	h1 {
+		@extend .orator_font;
+		font-size: em(40);
+		line-height: 110%;
+		color: $burgundy;
+	}
+
+	h2 {
+		font-size: em(20);
+	}
+	p {
+		padding: em(20) 0;
+	}
+
+	h4 {
+		font-weight: bold;
+		color: $blue;
+		font-size: em(18);
+	}
+
+	.btn_green {
+		font-size: em(35);
+		text-decoration: none;
+		float: left;
+	}
+}
+.signup {
+	@extend .jobs_view;
+	padding-top: em(30);
+	background-color: $white;
+
+	.signup_wrapper {
+		@include span-columns(12);
+		margin: em(100) auto;
+		@include border-radius(em(10));
+	}
+
+	.signup_form {
+		height: 100%;
+		background-color: $white;
+		padding-right: em(30);
+		font-size: em(14);
+		float: left;
+		margin: em(10);
+		@include omega();
+
+		li {
+			@include fill-parent;
+			@extend .opensans_font;
+			border: 1px solid lighten($light_gray, 20%);
+			border-radius: em(4);
+			float: left;
+			margin-bottom: em(10);
+
+
+			&.form_name:before, &.form_email:before, &.form_password:before, &.form_phone:before{
+				width: 15%;
+				float: left;
+				-webkit-box-sizing: border-box;
+				-moz-box-sizing: border-box;
+				-ms-box-sizing: border-box;
+				box-sizing: border-box;
+				border-right: inherit;
+				color: lighten($light_gray, 20%);
+				padding-right: 5%;
+				height: 100%;
+				padding: em(15);
+				font-family: Icons, sans-serif;
+				font-size: em(20);
+			}
+
+			
+			&.form_name:before {
+				content: '\e803';
+			}
+
+			&.form_email:before  {
+				content: '\e808';
+			}
+
+			&.form_password:before {
+				content: '\e809';
+			}
+
+			&.form_phone:before {
+				content: '\e801';
+			}
+
+			&.error {
+				color: $burgundy;
+				border: none;
+				@include border-radius(0);
+				width: 100%;
+				float: left;
+				line-height: 150%;
+
+				&:before {
+					content: '';
+					width: 0;
+					border-right: none;
+				}
+			}
+
+			&.no_border {
+				border: none;
+
+				&:before {
+					content: '';
+					padding: 0;
+				}
+			}
+		}
+	}
+
+	.signup_callout {
+		@include span-columns(5 of 12);
+		font-size: em(15);
+		color: $burgundy;
+		@extend .fjalla_font;
+		line-height: 150%;
+		float: left;
+		padding: 0 em(30);
+		@include shift(1);
+		@include omega();
+
+		h1 {
+			font-size: em(40);
+			line-height: 120%;
+		}
+
+		h2 {
+			font-size: em(15);
+			@extend .opensans_font;
+			padding-bottom: em(10);
+			margin-bottom: em(10);
+			color: lighten($light_gray, 10%); 
+			margin-top: em(10);
+			font-weight: bold;
+
+		}
+	}
+
+	.signup_form_wrapper {
+		@include span-columns(5 of 12);
+
+		&.login {
+			@include shift(3);
+			border: 1px solid lighten($light_gray, 30%);
+			@include border-radius(em(5));
+			padding: 0;
+			@include span-columns(6 of 12);
+			font-weight: bold;
+			color: $gray;
+			margin-top: em(-30);
+
+			.signup_callout {
+				font-size: em(37);
+				line-height: 120%;
+				@extend .fjalla_font;
+				margin-left: 0;
+				padding-left: 0;
+				border-bottom: 1px solid lighten($light_gray, 30%);
+				padding-bottom: em(10);
+				background-color: $purple;
+				color: $white;
+				padding: em(5);
+				display: block;
+				width: 100%;
+				padding-left: em(20);
+			}
+
+			.signup_form {
+				margin: 0;
+				padding-right: 0;
+				padding: em(50);
+			}
+
+			.link_blue {
+				color: $blue;
+				text-decoration: none;
+
+				&:active, &:focus, &:visited {
+					color: $link_blue;
+				}
+			}
+		}
+
+		label {
+			padding-bottom: em(10);
+			width: 100%;
+			float: left;
+			color: $light_gray;
+			font-weight: bold;
+		}
+
+
+		input {
+			color: $gray;
+			border: none;
+			float: left;
+			width: 85%;
+			font-size: em(20);
+			padding: em(10);
+			@extend .opensans_font;	
+
+			&:focus {
+				border-color: rgba(82, 168, 236, 0.8);
+				  -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgba(82, 168, 236, 0.6);
+				  -moz-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgba(82, 168, 236, 0.6);
+				  box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgba(82, 168, 236, 0.6);
+				  outline: 0;
+				  outline: thin dotted \9;
+  /* IE6-9 */
+			}		
+		}
+		
+		input[type="checkbox"] {
+			width: auto;
+		}
+
+		input[type="submit"] {
+			width: auto;
+			font-size: em(17);
+			background: #5ea70b;
+			color: $white;
+			border: none;
+			padding: em(10) em(20);
+			@include border-radius(em(4));
+			font-size: em(20);
+			font-weight: bold;
+		}
+
+	}
+}
+*:focus {
+	outline: none;
+}
+.account .other_jobs{
+	font-size: em(14);
+	ul {
+		li {
+			&:last-child {
+				border: none;
+
+				a {
+					color: $link_blue;
+					font-weight: bold;
+				}
+			}
+		}
+	}
+	
+	.job_view_place {
+		font-size: em(16);
+		display: block;
+		padding: em(10) 0;
+		color: lighten($light_gray, 10%);
+	}
+}
+.wpjb-flash-error {
+	padding: em(30);
+}
+.flash_error {
+	display: block;
+	line-height: 150%;
+	margin-bottom: em(10);
+	font-size: em(25);
+	color: $burgundy;
+	@extend .orator_font;
+}
+.extra_padding_top {
+	padding-top: em(90);
+
+	.flash_error {
+	padding-left: em(65);
+	padding-right: em(65);
+	}
+}
+.extra_padding_side {
+	padding-left: em(100);
+	padding-right: em(100);
+	float: left;
+
+	p {
+		display: block;
+		color: $light_gray;
+		font-size: em(14);
+		line-height: 150%;
+		padding-bottom: em(30);
+	}
+}
+.btn_green_big {
+	@extend .btn_green;
+}
+.btn_orange_big {
+	@extend .btn_orange;
+}
+.btn_green_big, .btn_orange_big {
+	font-size: em(25);
+	text-decoration: none;
+	margin-right: em(10);
+}
+.resume_form {
+	fieldset {
+		background-color: lighten($light_gray, 35%);
+		border: 1px dashed lighten($light_gray, 20%);
+		@include border-radius(em(4));
+	}
+
+	label {
+		font-weight: bold;
+	}
+
+	input {
+		padding: em(10) em(10);
+		font-size: em(19);
+		color: $gray;
+		@include border-radius(em(4));
+		border: none;
+
+	}
+}
+/**Start of styling for users**/
+.user {
+	@include span-columns(12);
+	background-color: $white;
+	@extend .opensans_font;
+	color: $gray;
+}
+.user_details{
+	@include span-columns(4 of 12);
+	padding: em(50) em(40);
+
+	li {
+		display: block;
+		margin-bottom: em(15);
+		padding-bottom: em(15);
+		border-bottom: 1px solid lighten($light_gray, 30%);
+
+		&.user_name {
+			font-size: em(25);
+			font-weight: 700;
+			line-height: 150%;
+		}
+
+		&.user_location, &.user_email, &.user_phone, &.user_date_joined, &.user_edit_profile {
+			font-size: em(15);
+
+			&:before {
+				padding: 0 em(10) em(0) em(0);
+				color: lighten($gray, 30%);	
+				font-family: Icons, sans-serif;
+				font-size: em(15);
+				width: em(40);
+			}
+		}
+
+		&.user_location {
+			&:before {
+				content: '\e805';
+			}
+		}
+
+		&.user_email {
+			&:before {
+				content: '\e808';
+			}
+		}
+
+		&.user_phone {
+			&:before {
+				content: '\e807';
+			}
+		}
+
+		&.user_date_joined {
+			&:before {
+				content: '\e807';
+			}
+		}
+
+		&.user_edit_profile {
+			background-color: lighten($burgundy, 20%);
+			color: $white;
+			float: left;
+			padding: em(5) em(10);
+			@include border-radius(em(5));
+
+			a {
+				text-decoration: none;
+				color: $white;
+			}
+
+			&:hover {
+				background-color: $burgundy;
+			}
+
+			&:before {
+				content: '\e807';
+				color: $white;
+			}
+		}
+	}
+}
+
+.profile_links {
+	@extend .user_details;
+
+	background-color: lighten($light_gray, 35%);
+	margin: em(20);
+	@include span-columns(3);
+	padding: em(30);
+
+	li {
+		margin-bottom: em(4);
+		line-height: 150%;
+		font-size: em(15);
+
+		a {
+			color: $blue;
+			font-weight: bold;
+			text-decoration: none;
+
+			&:hover {
+				text-decoration: underline;
+			}
+		}
+	}
+}
+
+
+.user_main {
+	@include span-columns(8 of 12);
+	padding: em(50) em(50);
+	border-left: 1px solid lighten($light_gray, 30%);
+	float: left;
+
+	.user_main_content {
+		@include span-columns(12);
+		float: left;
+		font-size: em(14);
+		line-height: 150%;
+
+		h2 {
+			font-size: em(20);
+			line-height: 150%;
+			font-weight: bold;
+
+			.edit {
+				text-decoration: underline;
+				color: $blue;
+				font-size: em(10);
+				cursor: pointer;
+
+				&:hover, &:active {
+					color: $blue;
+				}
+			}
+		}
+
+		.add {
+			text-decoration: none;
+			font-weight: bold;
+			color: lighten($burgundy, 10%);
+			margin-top: em(5);
+			float: left;
+			font-size: em(13);
+
+			&:hover {
+				text-decoration: underline;
+			}
+		}
+
+		.upload_resume, .profiles, .latest_applications {
+			@include span-columns(6 of 12);
+			@include omega();
+			margin-bottom: em(20);
+			padding: em(15) em(30);
+			border: 1px solid lighten($light_gray, 20%);
+
+		}
+
+		.profiles {
+			border: none;
+			padding-left: 0;
+		}
+
+		.upload_resume, .latest_applications {
+			background-color: lighten($light_gray, 30%);
+			@include span-columns(12);
+		}
+
+		.latest_applications {
+			background-color: lighten($light_gray, 30%);
+			@include span-columns(12);
+
+			.latest-application {
+				@include span-columns(6 of 12);
+				background-color: lighten($light_gray, 25%);
+				margin-bottom: em(10);
+				line-height: 150%;
+				padding: em(10);
+				@include border-radius(em(4));
+
+				li {
+					width: 100%;
+					padding-bottom: em(10);
+					display: block;
+				}
+
+				h3 {
+					font-weight: bold;
+					color: $burgundy;
+				}
+
+				a.green_btn {
+					text-decoration: none;
+					font-size: em(13);
+					padding: em(4) em(8);
+				}
+			}
+		}
+
+		.profile_full {
+			@include span-columns(12);
+			padding: em(20);
+			background-color: lighten($light_gray, 30%);
+			border: 1px solid lighten($light_gray, 20%);
+			margin-bottom: em(20);
+			@include border-radius(em(5));
+			position: relative;
+
+			.error {
+				color: $burgundy;
+				font-size: em(14);
+				font-weight: bold;
+			}
+
+			.add {
+				float: none;
+			}
+
+			.add_record {
+				background-color: lighten($burgundy, 10%);
+				color: $white;
+				padding: em(5) em(10);
+				text-decoration: none;
+				margin-top: em(10);
+				@include border-radius(em(3));
+				float: left;
+				position: absolute;
+				top: em(10);
+				right: em(20);
+
+				&:hover {
+					background-color: $burgundy;
+				}
+			}
+
+			li.left {
+				@include span-columns(4 of 12);
+			}
+
+			li.right {
+				@include span-columns(6 of 12);
+			}
+
+			input[type="text"], input[type="email"], input[type="tel"] {
+				padding: em(10);
+				font-size: em(14);
+				border: 1px solid lighten($light_gray, 20%);
+				width: em(300);
+
+			}
+
+			h2 {
+				border-bottom: 1px solid lighten($light_gray, 20%);
+				padding-bottom: em(10);
+				margin-bottom: em(10);
+			}
+
+			.left {
+				@include span-columns(3 of 12);
+				@include omega();
+				font-weight: bold;
+				float: left;
+				padding-bottom: em(5);
+				line-height: 150%;
+				clear: both;
+			}
+			.right {
+				@include span-columns(9 of 12);
+				float: left;
+				padding-bottom: em(5);
+				line-height: 150%
+			}
+		}
+
+
+		.user_mailing_list {
+			@include span-columns(10);
+			padding: em(15) em(30);
+			background-color: lighten($burgundy, 25%);
+			@include border-radius(em(5));
+			margin-top: em(20);
+
+			ul {
+				li {
+					float: left;
+				}
+			}
+
+			input[type="text"] {
+				padding: em(14);
+				color: $gray;
+				@extend .opensans_font;
+				width: em(350);
+				border: none;
+			}
+
+			input[type="submit"] {
+				@extend .opensans_font;
+				@include button(simple, $lemon_green);
+				color: $white;
+				font-weight: bold;
+				border: none;
+				font-size: em(16);
+				text-shadow: none;
+			}
+
+			p {	
+				margin-bottom: em(5);
+			}
+		}
+	}
+}
+.user_section_heading {
+	@extend .fjalla_font;
+	color: $white;
+	font-size: em(30);
+	padding: em(5) em(10);
+	line-height: em(20);
+	@include span-columns(12);
+	background-color: $purple;
+}
+.upload_btn {
+	@include button(simple, $link_blue);
+	font-size: em(16);
+	margin-top: em(10);
+	color: #fff;
+	text-shadow: none;
+}
+.submit_btn {
+	@extend .upload_btn
+}
+.work_experience {
+	font-size: em(14);
+	padding-bottom: em(10);
+	border-bottom: 1px solid lighten($light_gray, 20%);
+	margin-bottom: em(10);
+
+	strong {
+		font-weight: bold;
+	}
+
+	&:last-child {
+		border-bottom: none;
+	}
+}
+.educational_profile {
+	@extend  .work_experience;
+}
+.view_resume_btn {
+	@include button(simple, lighten($burgundy, 10%));
+	font-size: em(16);
+	text-shadow: none;
+	margin-right: em(20);
+	float: left;
+	color: $white;
+}
+iframe {
+	width: 100%;
+}
+/***********************************************************************
+**Style for employer starts here
+***********************************************************************/
+.employer {
+	@include span-columns(12);
+	background-color: $white;
+	padding-top: em(50);
+	position: relative;
+	color: $light_gray;
+
+	.section_heading {
+		@extend .fjalla_font;
+		color: $white;
+		font-size: em(30);
+		padding: em(5) em(10);
+		position: absolute;
+		line-height: em(20);
+		top: 0;
+		left: 0;
+		width: 100%;
+		background-color: $purple;
+	}
+
+	.employer_nav {
+		@include span-columns(3 of 12);
+		padding: em(20);
+		font-size: em(16);
+		line-height: 150%;
+
+		a {
+			text-decoration: none;
+		}
+
+		li {
+			padding-bottom: em(5);
+			width: 100%;
+			margin-bottom: em(5);
+			display: block;
+			float: left;
+
+			&.account_settings {
+				a {
+					color: $gray;
+
+					&:hover {
+						text-decoration: underline;
+					}
+				}
+			}
+			
+		}
+	}
+	.main {
+		@include span-columns(9 of 12);
+		padding: em(20);
+		border-left: 1px solid lighten($light_gray, 30%);
+		line-height: 150%;
+
+		h2 {
+			font-size: em(20);
+			line-height: 150%;
+			@include span-columns(12);
+			margin-bottom: em(20);
+			font-weight: bold;
+			position: relative;
+
+			.view_all {
+				font-size: em(12);
+				padding: 0 em(10);
+				color: $white;
+				background-color: $burgundy;
+				position: absolute;
+				right: 0px;
+				@include border-radius(em(3));
+
+				text-decoration: none;
+
+				&:hover {
+					background-color: lighten($burgundy, 10%);
+				}
+			}
+		}
+	}
+	.full_width {
+		@include span-columns(12);
+		margin-bottom: em(20);
+	}
+	.recent_applications {
+		.no_recent_applications {
+			@include span-columns(12);
+			padding: em(10);
+			background-color: lighten($green, 70%);
+			border: 1px solid lighten($light_gray, 30%);
+			@include border-radius(em(5));
+			color: $gray;
+		}
+
+		.pagination {
+			@include span-columns(12);
+			margin-bottom: em(20);
+
+
+			li {
+				float: left;
+				margin-right: em(5);
+
+				a{
+					text-decoration: none;
+					color: $gray;
+					display: block;
+					width: 100%;
+					height: 100%;
+					background-color: lighten($light_gray, 30%);
+					border: 1px solid lighten($light_gray, 20%);
+					padding: em(5) em(10);
+					@include border-radius(em(3));
+
+					&.active {
+						font-weight: bold;
+						background-color: lighten($light_gray, 10%);
+						color: $white;
+					}
+
+				}
+
+				&:hover {
+					background-color: lighten($light_gray, 10%);
+				}
+			}
+		}
+	}
+	.recent_application {
+		@include span-columns(4);
+		@include omega(4n);
+		@include pad(em(20));
+		margin-bottom: em(20);
+		border: 1px solid lighten($light_gray, 25%);
+		background-color: lighten($light_gray, 30%);
+		border-bottom: 5px solid lighten($light_gray, 25%);
+		@include border-radius(em(5));
+		font-size: em(14);
+
+		li {
+			margin-bottom: em(5);
+
+			h3 {
+				font-weight: bold;
+				border-bottom: 1px solid lighten($light_gray, 20%);
+				margin-bottom: em(10);
+				padding-bottom: em(10);
+			}
+		}
+
+		a {
+			text-decoration: none;
+		}
+
+		.blue_btn, .burgundy_btn, .green_btn, .light_blue_btn {
+			font-size: em(14);
+		}
+	}
+	.recent_jobs {
+		@extend .recent_applications;
+
+		.no_recent_job {
+			@extend .no_recent_applications;
+			color: $gray;
+
+			.blue_btn {
+				font-size: em(14);
+				text-decoration: none;
+			}
+		}
+	}
+	.recent_job {
+		@extend .recent_application;
+		@include span-columns(5 of 12);
+
+		strong {
+			font-weight: bold;
+		}
+
+		.recent_job_nav {
+			margin-top: em(10);
+			padding-top: em(10);
+			border-top: 1px solid lighten($light_gray, 20%);
+
+			a {
+				color: $blue;
+				padding-right: em(10);
+				font-weight: bold;
+
+				&:hover, &:active {
+					text-decoration: underline;
+				}
+			}
+		}
+	}
+}
+.icon {
+	font-family: Icons, sans-serif;
+	&:before {
+		content: '';
+		padding-right: em(10);
+	}
+	&.settings_icon {
+		&:before {
+			content: '\e80c';
+		}
+	}
+	&.location_icon {
+		&:before {
+			content: '\e805';
+		}
+	}
+	&.profile_icon {
+		&:before {
+			content: '\e803';
+		}
+	}
+	&.view_icon {
+		&:before {
+			content: '\e90a';
+		}
+	}
+	&.calendar_icon {
+		&:before {
+			content: '\e807';
+		}
+	}
+	&.view_icon {
+		&:before {
+			content: '\e80a';
+		}
+	}
+
+	&.edit_icon {
+		&:before {
+			content: '\e800';
+		}
+	}
+
+	&.trash_icon {
+		&:before {
+			content: '\e80b';
+		}
+	}
+	&.mail_icon {
+		&:before {
+			content: '\e808';
+		}
+	}
+	&.phone_icon {
+		&:before {
+			content: '\e801';
+		}
+	}
+}
+.green_btn, .blue_btn, .burgundy_btn, .light_blue_btn {
+	font-size: em(16);
+	padding: em(10) em(20);
+	@include border-radius(em(4));
+	color: $white;
+	display: inline-block;
+	font-weight: bold;
+}
+.green_btn {
+	background-color: $lemon_green;
+}
+.blue_btn {
+	background-color: $blue;
+}
+.burgundy_btn {
+	background-color: $burgundy;
+}
+
+.light_blue_btn {
+	background-color: lighten($blue, 10%);
+}
+
+/*************************************************************
+* User Profile stylesheet starts here.
+*************************************************************/
+.user-profile {
+	font-size: em(14);
+	@include span-columns(12);
+
+	.icon {
+		color: lighten($light_gray, 20%);
+	}
+
+	strong {
+		font-weight: bold;
+	}
+
+	.light_gray {
+		color: lighten($light_gray, 10%);
+		font-weight: normal;
+	}
+
+	.user-profile-name {
+		color: $light_blue;
+	}
+
+	.user-wes {
+		margin-bottom: em(10);
+		padding-bottom: em(10);
+		border-bottom: 1px solid lighten($light_gray, 30%);
+
+		h2 {
+			border-bottom: 1px solid lighten($light_gray, 30%);
+			padding-bottom: em(10);
+			margin-bottom: em(10);
+			color: $burgundy;
+			font-weight: normal;
+		}
+		
+		.user-we {
+			margin-bottom: em(10);
+			padding-bottom: em(10);
+			border-bottom: 1px dashed lighten($light_gray, 30%);
+
+			&:last-child {
+				padding-bottom: 0;
+				margin-bottom: 0;
+				border-bottom: none;
+			}
+			li {
+				display: block;
+				padding-bottom: em(5);
+
+			}
+		}
+	}
+
+	.user-eps {
+		@extend .user-wes;
+
+		.user-ep {
+			@extend .user-we;
+		}
+	}
+	.user-cms {
+		@extend .user-wes;
+
+		.user-cm {
+			@extend .user-we;
+		}
+	}
+
+	.personal_info {
+		@extend .user-wes;
+	}
+}
+a.burgundy_btn {
+	text-decoration: none;
+
+	&:hover, &:active, &:focus {
+		background-color: lighten($burgundy, 10%);
+	}
+}
+
+.employer-post-jobs {
+	color: $gray;
+	font-size: em(14);
+	font-weight: bold;
+
+	h2 {
+		border-bottom: 1px solid lighten($light_gray, 30%);
+		padding-bottom: em(10);
+	}
+
+	input, textarea, select {
+		padding: em(10);
+		border: 1px solid lighten($light_gray, 20%);
+		width: 300px;
+		@extend .opensans_font;
+		@include border-radius(em(4));
+
+		&:focus {
+			border-color: rgba(82, 168, 236, 0.5);
+			-webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgba(82, 168, 236, 0.6);
+			-moz-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgba(82, 168, 236, 0.6);
+			box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgba(82, 168, 236, 0.6);
+			outline: 0;
+			outline: thin dotted \9;
+  			/* IE6-9 */
+		}
+	}
+	textarea { 
+		width: 70%;
+	}
+	input[type="submit"] {
+		width: auto;
+		@include button('simple', $lemon_green);
+		font-size: em(18);
+		text-shaodow: none;
+	}
+
+	.job_listing_info {
+		width: 60%;
+		color: $burgundy;
+		font-size: em(14);
+		font-style: italic;
+		line-height: 150%;
+		margin-bottom: em(20);
+	}
+	.error {
+		color: $burgundy;
+		font-style: em(13);
+	}
+}
+.already_logged_in {
+	padding: em(100);
+
+	h2 {
+		padding-bottom: em(10);
+		@extend .orator_font;
+		font-size: em(25);
+		line-height: 120%;
+		color: $gray;
+	}
+
+	p {
+		color: $burgundy;
+		margin-bottom: em(10);
+		font-style: italic;
+		line-height: 150%;
+	}
+}
+input[type="submit"] {
+	&.btn_green {
+		border: none;
+		@include border-radius(em(3));
+		cursor: pointer;
+	}
+a.green_btn {
+	cursor: pointer;
+	text-decoration: none;
+	}
+}
+.extra_padding-top {
+	padding-top: em(50);
+}

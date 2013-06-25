@@ -1,0 +1,41 @@
+@import "compass/typography/";
+@import "compass/css3";
+@import "compass/reset";
+@import "bourbon/bourbon";
+@import "grid-settings";
+@import "neat/neat";
+
+@font-face {
+	font-family: 'Orator';
+	src: url('/fonts/Orator.eot');
+	src: local('☺'), url('/fonts/Orator.woff') format('woff'), url('/fonts/Orator.ttf') format('truetype'), url('/fonts/Orator.svg') format('svg');
+	font-weight: normal;
+	font-style: normal;
+}
+
+@font-face {
+	font-family: 'Icons';
+	src: url('/fonts/fontello.eot');
+	src: local('☺'), url('/fonts/fontello.woff') format('woff'), url('/fonts/fontello.ttf') format('truetype'), url('/fonts/fontello.svg') format('svg');
+	font-weight: normal;
+	font-style: normal;
+}
+
+$experimental-support-for-svg: true;
+$green: #387808;
+$lemon_green: #bec508;
+$light_lemon_green: #e5eb40;
+$pink: #d61073;
+$light_pink: #f2a0a0;
+$blue: #6eb7eb;
+$link_blue: #96d1e7;
+$light_blue: #96d1e7;
+$gray: #7d7d7d;
+$light_gray: #a4a4a4;
+$white: #fff;
+$black: #000;
+$break-big: 482px;
+$light_green: #5ea70b;
+$burgundy: #f1747a;
+$orange: #e08214;
+$purple: rgba(108, 5, 56, 0.8);
